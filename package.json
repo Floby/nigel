@@ -1,0 +1,21 @@
+{
+  "author": "Florent Jaby <florent.jaby@gmail.com> (http://github.com/floby)",
+  "name": "nigel",
+  "description": "Proof of concept of a prototype-oriented CMS",
+  "version": "0.0.0",
+  "homepage": "http://github.com/floby/nigel",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Floby/nigel.git"
+  },
+  "engines": {
+    "node": "0.4"
+  },
+  "dependencies": {
+    "jade": "0.10.7",
+    "mongodb": "0.9"
+  },
+  "devDependencies": {},
+
+  "main":"app.js"
+}
