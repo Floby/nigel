@@ -4,6 +4,7 @@
  */
 
 var express = require('express');
+process.chdir(__dirname);
 
 var app = module.exports = express.createServer();
 
