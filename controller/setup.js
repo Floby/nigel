@@ -1,7 +1,15 @@
+var util = require('util');
+
 function controller (name) {
-    return function route(req, res, next) {
-        res.end("you've got yourself a knot ;)\n");
+    var ctl;
+    try {
+        ctl = require('./'+name);
+    } catch(e) {
+        ctl = function(req, res, next) {
+            next();
+        }
     }
+    return ctl;
 }
 
 exports.setup_routes = function setup_routes (app) {
