@@ -28,12 +28,8 @@ app.configure('production', function(){
 });
 
 // Routes
-
-app.get('/', function(req, res){
-  res.render('index', {
-    title: 'Express'
-  });
-});
+var setup_routes = require('./controller/setup').setup_routes;
+setup_routes(app);
 
 // Only listen on $ node app.js
 
