@@ -1,0 +1,9 @@
+h1= (knot.title || "Untitled")
+form(method:"PUT", action:"../")
+  fieldset
+    ul
+      - each field in Object.getOwnPropertyNames(knot)
+        li
+          span= field
+          | :
+          span= knot[field]

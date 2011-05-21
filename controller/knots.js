@@ -2,7 +2,13 @@ var util = require('util');
 var Knot = require('../lib/FsKnot');
 
 module.exports = function knots(req, res, next) {
-    if(req.params.id) return showKnot(req, res, next);
+    console.log('got request', req.params);
+    if(req.params.id) {
+        if(!req.params.action) {
+            return showKnot(req, res, next);
+        }
+        return editKnot(req, res, next);
+    }
     return listKnots(req, res, next);
 }
 
@@ -19,8 +25,19 @@ function listKnots (req, res, next) {
 
 function showKnot (req, res, next) {
     Knot.get(req.params.id, function(err, k) {
-       //if(err) return next(err);
         res.write(util.inspect(k));
         res.end('\n');
+    })
+}
+
+function editKnot (req, res, next) {
+    Knot.get(req.params.id, function(err, k) {
+        if(err) return next(err);
+        res.render('edit-knot', {
+            locals: {
+                title: "edit knot",
+                knot: k
+            }
+        })
     })
 }

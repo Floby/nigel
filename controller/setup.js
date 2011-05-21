@@ -19,5 +19,5 @@ exports.setup_routes = function setup_routes (app) {
       });
     });
 
-    app.get('/knots/:id?', controller('knots'));
+    app.get('/knots/:id?/:action?', controller('knots'));
 }
