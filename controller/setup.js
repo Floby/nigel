@@ -36,10 +36,5 @@ exports.setup_routes = function setup_routes (app) {
     });
 
     app.get('/knots/:id?/:action?', controller('knots'));
-    app.get('/:module/:controller/:action/*', parseArgs, autoRoute, function(req, res, next) {
-        res.header('content-type', 'text/plain');
-        res.write(util.inspect(req.params));
-        res.write('\n');
-        res.end();
-    })
+    app.get('/:module/:controller/:action/*', parseArgs, autoRoute);
 }
